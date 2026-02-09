@@ -1,26 +1,23 @@
-a = 0
-b = 0
-c = False
-
-def main():
-    Speed()
-    Coordinates()
-
 def Speed():
-    try:
-        a = int(input("Enter Motor Speed: ___"))
-    except ValueError:
-        print("Error: Corrupted Signal. Maintaining current speed.")
+    while True:
+        try:
+            return int(input("Enter Motor Speed: ___"))
+        except ValueError:
+            print("Error: Corrupted Signal. Maintaining current speed.")
 
 def Coordinates():
     while True:
         try:
-            b = int(input("Input X Coordinate: ___"))
-            c = str(b).isnumeric()
+            c = int(input("Input X Coordinate: ___"))
+            if c < 100 and c > -100:
+                return c
+            else:
+                print("Coordinate out of range")
         except ValueError:
             print("Incorrect Value Type")
-        if c is True:
-            break
 
-main()
-print()
+a = Speed()
+b = Coordinates()
+
+
+print(a, b)
